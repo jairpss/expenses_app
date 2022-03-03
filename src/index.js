@@ -15,7 +15,7 @@ import favicon from './images/monedas.png'
 
 WebFont.load({
   google: {
-    families: ['Manrope:400,500,600,700,800', 'sans-serif']
+    families: ['Manrope:400,500,600,700,800,900', 'sans-serif']
   }
 });
 
