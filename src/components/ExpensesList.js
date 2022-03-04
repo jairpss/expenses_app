@@ -1,8 +1,20 @@
 import React from 'react'
+import {Header, Title, HeaderContainer, BtnContainer} from '../elements/Header'
+import Helmet from 'react-helmet'
+import BackBtn from '../elements/BackBtn'
 
 const ExpensesList = () => {
     return ( 
-        <h1>Expenses List</h1>
+        <>
+            <Helmet>
+                <title>Expenses List</title>
+            </Helmet>
+
+            <Header>
+                    <BackBtn />
+                    <Title>Expenses List</Title>
+            </Header>
+        </>
      );
 }
  
