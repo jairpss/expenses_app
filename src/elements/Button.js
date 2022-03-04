@@ -10,9 +10,9 @@ const Button = styled(Link)`
     color: #fff;
     font-family: 'Manrope', sans-serif;
     height: 3.75rem; /* 60px */
-    padding: 1.25rem 1.87rem; /* 20px 30px */
+    padding: 1.25rem 2rem; /* 20px 30px */
     font-size: 1.25rem; /* 20px */
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
     text-decoration: none;
