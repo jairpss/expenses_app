@@ -2,7 +2,7 @@ import React from 'react'
 import {Header, Title, HeaderContainer} from '../elements/Header'
 import Button from '../elements/Button'
 import Helmet from 'react-helmet'
-import {Form, Input, BigInput, ButtonContainer} from '../elements/FormElements'
+import {Form, Input, ButtonContainer} from '../elements/FormElements'
 import ImgLogin from './../images/icon-signup.png' 
 
 const Signup = () => {
