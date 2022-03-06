@@ -32,7 +32,7 @@ const Form = styled.form`
         padding: 1.5rem 1.5rem;
         font-family: 'Manrope', sans-serif;
         font-weight: 500;
-        background-color: #FCFCFC;
+        background-color: #FAFAFA;
         &::placeholder {
             color: rgba(0,0,0,.2);
         }
