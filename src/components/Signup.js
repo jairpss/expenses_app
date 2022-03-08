@@ -4,8 +4,12 @@ import Button from '../elements/Button'
 import Helmet from 'react-helmet'
 import {Form, Input, ButtonContainer} from '../elements/FormElements'
 import ImgLogin from './../images/icon-signup.png' 
+import {auth} from './../firebase/firebaseConfig'
+import {useNavigate} from 'react-router-dom'
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Signup = () => {
+    const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [password2, setPassword2] = useState('')
@@ -26,7 +30,7 @@ const Signup = () => {
     }
 
     //function for the Form
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         //Test if email address is validate
@@ -42,6 +46,27 @@ const Signup = () => {
         if(password !== password2){
             console.log('password does not match')
             return
+        }
+        //registering users into firebase
+        try {
+            await createUserWithEmailAndPassword(auth, email, password)
+            navigate('/')
+        } catch (error) {
+            let message
+            switch(error.code){
+                case 'auth/invalid-password':
+                    message = 'Password needs to be at least 6 characters.'
+                    break;
+                case 'auth/email-already-in-use':
+                    message = 'Email address already in use, please provide a new one.'
+                break;
+                case 'auth/invalid-email':
+                    message = 'Email address not valid.'
+                break;
+                default:
+                    message = 'There was an error trying to create the account.'
+                break;
+            }
         }
     }
 
