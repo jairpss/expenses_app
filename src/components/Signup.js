@@ -7,12 +7,15 @@ import ImgLogin from './../images/icon-signup.png'
 import {auth} from './../firebase/firebaseConfig'
 import {useNavigate} from 'react-router-dom'
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import Alert from './../elements/Alert'
 
 const Signup = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [password2, setPassword2] = useState('')
+    const [alertState, setAlertState] = useState(false)
+    const [alert, setAlert] = useState({})
 
     //function to detect change in each input 
     const handleChange = (e) => {
@@ -26,25 +29,41 @@ const Signup = () => {
             case 'password2':
                 setPassword2(e.target.value)
                 break;
+            default:
+                break;
         }
     }
 
     //function for the Form
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setAlertState(false)
+        setAlert({})
 
         //Test if email address is validate
         const regExp = /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/
         if(!regExp.test(email)) {
-            console.log('email invalid')
+            setAlertState(true)
+            setAlert({
+                type: 'error',
+                message: 'Please provide a valid email address.'
+            })
             return
         }
         if(email === '' || password === '' || password2 === '') {
-            console.log('fill all the fields')
+            setAlertState(true)
+            setAlert({
+                type: 'error',
+                message: 'Please fill all the fields.'
+            })
             return
         }
         if(password !== password2){
-            console.log('password does not match')
+            setAlertState(true)
+            setAlert({
+                type: 'error',
+                message: 'Passwords does not match.'
+            })
             return
         }
         //registering users into firebase
@@ -52,6 +71,7 @@ const Signup = () => {
             await createUserWithEmailAndPassword(auth, email, password)
             navigate('/')
         } catch (error) {
+            setAlertState(true)
             let message
             switch(error.code){
                 case 'auth/invalid-password':
@@ -67,6 +87,7 @@ const Signup = () => {
                     message = 'There was an error trying to create the account.'
                 break;
             }
+            setAlert({type: 'error', message: message});
         }
     }
 
@@ -93,6 +114,12 @@ const Signup = () => {
                     <Button as="button" type="submit" primary>Create Account</Button>
                 </ButtonContainer>
             </Form>
+            <Alert 
+                type={alert.type}
+                message={alert.message}
+                alertState={alertState}
+                setAlertState={setAlertState}
+            />
         </>
      );
 }
