@@ -6,7 +6,7 @@ import {Form, Input, ButtonContainer} from '../elements/FormElements'
 import ImgLogin from './../images/icon-signup.png' 
 import {auth} from './../firebase/firebaseConfig'
 import {useNavigate} from 'react-router-dom'
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth"
 import Alert from './../elements/Alert'
 
 const Signup = () => {
@@ -124,4 +124,4 @@ const Signup = () => {
      );
 }
  
-export default Signup;
+export default Signup
