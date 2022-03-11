@@ -58,7 +58,7 @@ const Login = () => {
             let message
             switch(error.code){
                 case 'auth/wrong-password':
-                    message = 'Password in not correct.'
+                    message = 'Password is incorrect.'
                     break;
                 case 'auth/user-not-found':
                     message = 'There is not account related with this email address.'
