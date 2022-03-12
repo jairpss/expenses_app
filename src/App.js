@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import {Header, Title, HeaderContainer, BtnContainer} from './elements/Header'
 import Button from './elements/Button'
+import BtnLogout from './elements/BtnLogout'
 
 const App = () => {
   return ( 
@@ -16,7 +17,7 @@ const App = () => {
           <BtnContainer>
             <Button to="/categories">Categories</Button>
             <Button to="/list">Expenses List</Button>
-            <Button to="/">X</Button>
+            <BtnLogout />
           </BtnContainer>
         </HeaderContainer>
       </Header>
