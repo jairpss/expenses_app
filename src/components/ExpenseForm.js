@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
 import {FilterContainer, Form, Input, BigInput, ButtonContainer} from './../elements/FormElements'
 import Button from './../elements/Button'
+import SelectCategory from './SelectCategory'
 import {ReactComponent as PlusIcon} from './../images/plus.svg'
 
 const ExpenseForm = () => {
     const [inputDescription, setInputDescription] = useState('')
     const [inputAmount, setInputAmount] = useState('')
-    
+    const [categorie, setCategorie] = useState('categorie')
+
     const handleChange = (e) => {
         if(e.target.name === 'description'){
             setInputDescription(e.target.value)
@@ -18,7 +20,7 @@ const ExpenseForm = () => {
     return ( 
         <Form>
             <FilterContainer>
-                <p>Select</p>
+                <SelectCategory categorie={categorie} setCategorie={setCategorie}/>
                 <p>Date Picker</p>
             </FilterContainer>
 

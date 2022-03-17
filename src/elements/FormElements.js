@@ -25,9 +25,9 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    /* align-items: center; */
     input {
-        width: 75%;
+        width: 100%;
         text-align: center;
         padding: 1.5rem 1.5rem;
         font-family: 'Manrope', sans-serif;
