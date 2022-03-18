@@ -61,7 +61,7 @@ const Option = styled.div`
     }
 `;
 
-const SelectCategory = ({categorie, setCategorie}) => {
+const SelectCategory = ({category, setCategory}) => {
     const [showSelect, setShowSelect] = useState(false)
 
     const categories = [
@@ -76,23 +76,23 @@ const SelectCategory = ({categorie, setCategorie}) => {
     ]
 
     const handleClick = (e) => {
-        setCategorie(e.currentTarget.dataset.value)
+        setCategory(e.currentTarget.dataset.value)
     }
 
     return ( 
         <SelectContainer onClick={() => setShowSelect(!showSelect)}>
-           <SelectedOption>{categorie} <DownIcon /></SelectedOption>
+           <SelectedOption>{category} <DownIcon /></SelectedOption>
 
            {showSelect && 
                 <Options>
-                    {categories.map((categorie) => {
+                    {categories.map((category) => {
                         return <Option 
-                                    key={categorie.id} 
-                                    data-value={categorie.id} 
+                                    key={category.id} 
+                                    data-value={category.id} 
                                     onClick={handleClick}
                                >
-                                    <CategoryIcon id={categorie.id}/>
-                                    {categorie.text}
+                                    <CategoryIcon id={category.id}/>
+                                    {category.text}
                                </Option>
                     })}
                 </Options>

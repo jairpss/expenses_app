@@ -7,7 +7,7 @@ import {ReactComponent as PlusIcon} from './../images/plus.svg'
 const ExpenseForm = () => {
     const [inputDescription, setInputDescription] = useState('')
     const [inputAmount, setInputAmount] = useState('')
-    const [categorie, setCategorie] = useState('categorie')
+    const [category, setCategory] = useState('category')
 
     const handleChange = (e) => {
         if(e.target.name === 'description'){
@@ -20,7 +20,7 @@ const ExpenseForm = () => {
     return ( 
         <Form>
             <FilterContainer>
-                <SelectCategory categorie={categorie} setCategorie={setCategorie}/>
+                <SelectCategory category={category} setCategory={setCategory}/>
                 <p>Date Picker</p>
             </FilterContainer>
 
