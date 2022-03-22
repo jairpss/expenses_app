@@ -4,12 +4,17 @@ import Button from './../elements/Button'
 import SelectCategory from './SelectCategory'
 import {ReactComponent as PlusIcon} from './../images/plus.svg'
 import DatePicker from './DatePicker'
+import fromUnixTime from 'date-fns/fromUnixTime'
+import getUnixTime from 'date-fns/getUnixTime'
+import addExpense from './../firebase/addExpense'
+import {useAuth} from './../context/AuthContext'
 
 const ExpenseForm = () => {
     const [inputDescription, setInputDescription] = useState('')
     const [inputAmount, setInputAmount] = useState('')
     const [category, setCategory] = useState('category')
     const [date, setDate] = useState(new Date())
+    const {user} = useAuth()
 
     const handleChange = (e) => {
         if(e.target.name === 'description'){
@@ -19,8 +24,20 @@ const ExpenseForm = () => {
         }
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        let amount = parseFloat(inputAmount).toFixed(2)
+        addExpense({
+            category: category,
+            description: inputDescription,
+            amount: inputAmount,
+            date:getUnixTime(date),
+            uidUser: user.uid
+        })
+    }
+
     return ( 
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <FilterContainer>
                 <SelectCategory category={category} setCategory={setCategory}/>
                 <DatePicker date={date} setDate={setDate}/>
