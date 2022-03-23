@@ -34,13 +34,32 @@ const ExpenseForm = () => {
 
         //check the fields are not empty
         if(inputDescription !== '' && inputAmount !== ''){
-            addExpense({
-                category: category,
-                description: inputDescription,
-                amount: inputAmount,
-                date:getUnixTime(date),
-                uidUser: user.uid
-            })
+            if(amount) {
+                addExpense({
+                    category: category,
+                    description: inputDescription,
+                    amount: inputAmount,
+                    date:getUnixTime(date),
+                    uidUser: user.uid
+                })
+                .then(() => {
+                    setCategory('category')
+                    setInputDescription('')
+                    setInputAmount('')
+                    setDate(new Date())
+
+                    setAlertState(true)
+                    setAlert({type: 'success', message: 'The expense was added successfully.'})
+                })
+                .catch((error) => {
+                    setAlertState(true)
+                    setAlert({type: 'error', message: 'There was a problem trying to add the expense.'})
+                })
+            } else {
+                setAlertState(true)
+                setAlert({type: 'error', message: 'The value is incorrect.'})
+            }
+            
         } else {
             setAlertState(true)
             setAlert({type: 'error', message: 'Please fill all the fields.'})
