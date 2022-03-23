@@ -2,7 +2,7 @@ import React from 'react'
 import {Header, Title} from '../elements/Header'
 import Helmet from 'react-helmet'
 import BackBtn from '../elements/BackBtn'
-
+import TotalSpentBar from './TotalSpentBar'
 
 const ExpensesList = () => {
 
@@ -16,6 +16,8 @@ const ExpensesList = () => {
                     <BackBtn />
                     <Title>Expenses List</Title>
             </Header>
+
+            <TotalSpentBar />
         </>
      );
 }
