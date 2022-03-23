@@ -8,12 +8,15 @@ import fromUnixTime from 'date-fns/fromUnixTime'
 import getUnixTime from 'date-fns/getUnixTime'
 import addExpense from './../firebase/addExpense'
 import {useAuth} from './../context/AuthContext'
+import Alert from './../elements/Alert'
 
 const ExpenseForm = () => {
     const [inputDescription, setInputDescription] = useState('')
     const [inputAmount, setInputAmount] = useState('')
     const [category, setCategory] = useState('category')
     const [date, setDate] = useState(new Date())
+    const [alertState, setAlertState] = useState(false)
+    const [alert, setAlert] = useState({})
     const {user} = useAuth()
 
     const handleChange = (e) => {
@@ -26,14 +29,22 @@ const ExpenseForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        //add to the amount two decimals after point
         let amount = parseFloat(inputAmount).toFixed(2)
-        addExpense({
-            category: category,
-            description: inputDescription,
-            amount: inputAmount,
-            date:getUnixTime(date),
-            uidUser: user.uid
-        })
+
+        //check the fields are not empty
+        if(inputDescription !== '' && inputAmount !== ''){
+            addExpense({
+                category: category,
+                description: inputDescription,
+                amount: inputAmount,
+                date:getUnixTime(date),
+                uidUser: user.uid
+            })
+        } else {
+            setAlertState(true)
+            setAlert({type: 'error', message: 'Please fill all the fields.'})
+        }
     }
 
     return ( 
@@ -66,6 +77,12 @@ const ExpenseForm = () => {
                     Add Expense <PlusIcon />
                 </Button>
             </ButtonContainer>
+            <Alert 
+                type={alert.type} 
+                message={alert.message}
+                alertState={alertState}
+                setAlertState={alertState}
+            />
         </Form>
      );
 }
