@@ -3,8 +3,10 @@ import {Header, Title} from '../elements/Header'
 import Helmet from 'react-helmet'
 import BackBtn from '../elements/BackBtn'
 import TotalSpentBar from './TotalSpentBar'
+import useGetExpenses from './../hooks/useGetExpenses'
 
 const ExpensesList = () => {
+    const [expenses] = useGetExpenses()
 
     return ( 
         <>
