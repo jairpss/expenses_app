@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import {db} from './../firebase/firebaseConfig'
 import {useAuth} from './../context/AuthContext'
-import { collection, onSnapShot, query, orderBy, where, limit, startAfter } from 'firebase/firestore'
+import { collection, onSnapshot, query, orderBy, where, limit, startAfter } from 'firebase/firestore'
 
 const useGetExpenses = () => {
     const {user} = useAuth()
@@ -41,7 +41,7 @@ const useGetExpenses = () => {
             limit(10)
         );
 
-        const unsubscribe = onSnapShot(querr, (snapshot) => {
+        const unsubscribe = onSnapshot(querr, (snapshot) => {
             if(snapshot.docs.length > 0){
                 setLastExpense(snapshot.docs[snapshot.docs.length -1])
                 setMoreToLoad(true)

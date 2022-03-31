@@ -168,11 +168,11 @@ const BtnLoadMore = styled.button`
     border: none;
     border-radius: 7px;
     color: #000;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Manrope', sans-serif;
     padding: 1rem 1.87rem; /* 20px 30px */
     
     font-size: 1.25rem; /* 20px */
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     text-decoration: none;
     display: inline-flex;
