@@ -7,6 +7,7 @@ import useGetExpenses from './../hooks/useGetExpenses'
 
 const ExpensesList = () => {
     const [expenses] = useGetExpenses()
+    console.log(expenses)
 
     return ( 
         <>
