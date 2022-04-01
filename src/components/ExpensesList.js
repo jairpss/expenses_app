@@ -26,10 +26,28 @@ import {ReactComponent as EditIcon} from './../images/editar.svg'
 import {ReactComponent as DeleteIcon} from './../images/borrar.svg'
 import {Link} from 'react-router-dom'
 import Button from './../elements/Button'
+import {format, fromUnixTime} from 'date-fns'
+
 
 const ExpensesList = () => {
     const [expenses] = useGetExpenses()
-    console.log(expenses)
+    
+    const dateFormat = (date) => {
+        return format(fromUnixTime(date), "MMMM dd',' yyyy")
+    }
+
+    const sameDate = (expenses, index, expense) => {
+        if(index !== 0) {
+            const currentDate = dateFormat(expense.date)
+            const previousDate = dateFormat(expenses[index -1].date)
+
+            if(currentDate === previousDate) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
 
     return ( 
         <>
@@ -42,27 +60,31 @@ const ExpensesList = () => {
                     <Title>Expenses List</Title>
             </Header>
             <List>
-                {expenses.map((expense) => {
+                {expenses.map((expense, index) => {
                     return (
-                        <ListElement key={expense.id}>
-                            <Category>
-                                <CategoryIcon id={expense.category}/>
-                                {expense.category}
-                            </Category>
-                            <Description>
-                                {expense.description}
-                            </Description>
-                            <Value>{formatAmount(expense.amount)}</Value>
+                        <div key={expense.id}>
+                            {!sameDate(expenses, index, expense) && <Dates>{dateFormat(expense.date)}</Dates>}
+                        
+                            <ListElement key={expense.id}>
+                                <Category>
+                                    <CategoryIcon id={expense.category}/>
+                                    {expense.category}
+                                </Category>
+                                <Description>
+                                    {expense.description}
+                                </Description>
+                                <Value>{formatAmount(expense.amount)}</Value>
 
-                            <BtnContainer>
-                                <BtnAction as={Link} to={`/edit/${expense.id}`}>
-                                    <EditIcon />
-                                </BtnAction>
-                                <BtnAction>
-                                    <DeleteIcon />
-                                </BtnAction>
-                            </BtnContainer>
-                        </ListElement>
+                                <BtnContainer>
+                                    <BtnAction as={Link} to={`/edit/${expense.id}`}>
+                                        <EditIcon />
+                                    </BtnAction>
+                                    <BtnAction>
+                                        <DeleteIcon />
+                                    </BtnAction>
+                                </BtnContainer>
+                            </ListElement>
+                        </div>
                     )
                 })}
 
