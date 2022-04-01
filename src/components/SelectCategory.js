@@ -72,7 +72,7 @@ const SelectCategory = ({category, setCategory}) => {
         {id: 'clothing', text: 'Clothing'},
         {id: 'health', text: 'Health'},
         {id: 'shopping', text: 'Shopping'},
-        {id: 'miscellaneous', text: 'Miscellaneous'}
+        {id: 'fun', text: 'Fun'}
     ]
 
     const handleClick = (e) => {

@@ -30,7 +30,7 @@ import {format, fromUnixTime} from 'date-fns'
 
 
 const ExpensesList = () => {
-    const [expenses] = useGetExpenses()
+    const [expenses, getMoreExpenses, moreToLoad] = useGetExpenses()
     
     const dateFormat = (date) => {
         return format(fromUnixTime(date), "MMMM dd',' yyyy")
@@ -87,10 +87,12 @@ const ExpensesList = () => {
                         </div>
                     )
                 })}
-
-                <BtnMainContainer>
-                    <BtnLoadMore>Load More</BtnLoadMore>
-                </BtnMainContainer>
+                {moreToLoad && 
+                    <BtnMainContainer>
+                        <BtnLoadMore onClick={() => getMoreExpenses()}>Load More</BtnLoadMore>
+                    </BtnMainContainer>
+                }
+                
 
                 {expenses.length === 0 &&
                     <SubtitleContainer>

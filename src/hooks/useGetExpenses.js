@@ -9,29 +9,28 @@ const useGetExpenses = () => {
     const [lastExpense, setLastExpense] = useState(null)
     const [moreToLoad, setMoreToLoad] = useState(false)
 
-    // const getMoreExpenses = () => {
-    //     const query = query(
-    //         collection(db, 'expenses'),
-    //         where('uidUser', '==', user.uid),
-    //         orderBy('date', 'desc'),
-    //         limit(10),
-    //         startAfter(lastExpense)
-    //     );
+    //Load More expenses button function
+    const getMoreExpenses = () => {
+        const querr = query(
+            collection(db, 'expenses'),
+            where('uidUser', '==', user.uid),
+            orderBy('date', 'desc'),
+            limit(10),
+            startAfter(lastExpense)
+        );
         
-    //     const unsubscribe = onSnapShot(query, (snapshot) => {
-    //         if(snapshot.docs.length > 0){
-	// 			setLastExpense(snapshot.docs[snapshot.docs.length -1]);
+        onSnapshot(querr, (snapshot) => {
+            if(snapshot.docs.length > 0){
+				setLastExpense(snapshot.docs[snapshot.docs.length -1])
 
-	// 			setExpenses(expenses.concat(snapshot.docs.map((expense) => {
-	// 				return {...expense.data(), id: expense.id}
-	// 			})))
-	// 		} else {
-	// 			setMoreToLoad(false);
-	// 		}
-    //         return unsubscribe
-    //     })
-
-    // }
+				setExpenses(expenses.concat(snapshot.docs.map((expense) => {
+					return {...expense.data(), id: expense.id}
+				})))
+			} else {
+				setMoreToLoad(false)
+			}
+        }, error => {console.error(error)})
+    }
 
     useEffect(() => {
         const querr = query(
@@ -56,7 +55,7 @@ const useGetExpenses = () => {
         return unsubscribe
     }, [user])
 
-    return [expenses, moreToLoad];
+    return [expenses, getMoreExpenses, moreToLoad];
 }
  
 export default useGetExpenses;
