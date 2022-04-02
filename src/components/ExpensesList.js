@@ -80,7 +80,7 @@ const ExpensesList = () => {
                                     <BtnAction as={Link} to={`/edit/${expense.id}`}>
                                         <EditIcon />
                                     </BtnAction>
-                                    <BtnAction onClick={deleteExpense(expense.id)}>
+                                    <BtnAction onClick={() => deleteExpense(expense.id)}>
                                         <DeleteIcon />
                                     </BtnAction>
                                 </BtnContainer>
