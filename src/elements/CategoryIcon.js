@@ -17,7 +17,7 @@ const CategoryIcon = ({id}) => {
         case 'bills':
             return <BillsIcon />;
         case 'fun':
-            return <MiscIcon />;
+            return <FunIcon />;
         case 'home':
             return <HomeIcon />;
         case 'clothing':
