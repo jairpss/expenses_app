@@ -2,7 +2,7 @@ import React from 'react'
 import {ReactComponent as FoodIcon} from './../images/cat_comida.svg';
 import {ReactComponent as ShoppingIcon} from './../images/cat_compras.svg';
 import {ReactComponent as BillsIcon} from './../images/cat_cuentas-y-pagos.svg';
-import {ReactComponent as FunIcon} from './../images/cat_diversion.svg';
+import {ReactComponent as MiscIcon} from './../images/cat_diversion.svg';
 import {ReactComponent as HomeIcon} from './../images/cat_hogar.svg';
 import {ReactComponent as ClothingIcon} from './../images/cat_ropa.svg';
 import {ReactComponent as HealthIcon} from './../images/cat_salud-e-higiene.svg';
@@ -16,8 +16,8 @@ const CategoryIcon = ({id}) => {
             return <ShoppingIcon />;
         case 'bills':
             return <BillsIcon />;
-        case 'fun':
-            return <FunIcon />;
+        case 'miscellaneous':
+            return <MiscIcon />;
         case 'home':
             return <HomeIcon />;
         case 'clothing':

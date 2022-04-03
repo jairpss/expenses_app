@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import theme from './../theme'
 import {ReactComponent as DownIcon} from './../images/down.svg'
-import CategoryIcon from './../elements/CategoryIcon'
+// import CategoryIcon from './../elements/CategoryIcon'
 
 const SelectContainer = styled.div`
     background: ${theme.grisClaro};
@@ -19,6 +19,9 @@ const SelectContainer = styled.div`
     transition: .5s ease all;
     &:hover {
         background: ${theme.grisClaro2};
+    }
+    @media(max-width: 60rem){ /* 950px */
+            width: 100%;
     }
 `;
  
@@ -66,13 +69,14 @@ const SelectCategory = ({category, setCategory}) => {
 
     const categories = [
         {id: 'food', text: 'Food'},
-        {id: 'bills', text: 'Bills and Payments'},
+        {id: 'bills', text: 'Bills'},
+        {id: 'miscellaneous', text: 'Miscellaneous'},
         {id: 'home', text: 'Home'},
         {id: 'transport', text: 'Transport'},
         {id: 'clothing', text: 'Clothing'},
         {id: 'health', text: 'Health'},
-        {id: 'shopping', text: 'Shopping'},
-        {id: 'fun', text: 'Fun'}
+        {id: 'shopping', text: 'Shopping'}
+        
     ]
 
     const handleClick = (e) => {
@@ -91,7 +95,7 @@ const SelectCategory = ({category, setCategory}) => {
                                     data-value={category.id} 
                                     onClick={handleClick}
                                >
-                                    <CategoryIcon id={category.id}/>
+                                    {/* <CategoryIcon id={category.id}/> */}
                                     {category.text}
                                </Option>
                     })}
