@@ -4,8 +4,13 @@ import Helmet from 'react-helmet'
 import BackBtn from '../elements/BackBtn'
 import TotalSpentBar from './TotalSpentBar'
 import ExpenseForm from './ExpenseForm'
+import {useParams} from 'react-router-dom'
+import useGetExp from '../hooks/useGetExp'
 
 const EditExpense = () => {
+    const {id} = useParams()
+    const [expense] = useGetExp(id)
+
     return ( 
         <>
             <Helmet>

@@ -20,7 +20,7 @@ import {
     SubtitleContainer,
     Subtitle 
 } from './../elements/ListElements'
-// import CategoryIcon from './../elements/CategoryIcon'
+import CategoryIcon from './../elements/CategoryIcon'
 import formatAmount from './../functions/convertToCurrency'
 import {ReactComponent as EditIcon} from './../images/editar.svg'
 import {ReactComponent as DeleteIcon} from './../images/borrar.svg'
@@ -68,7 +68,7 @@ const ExpensesList = () => {
                         
                             <ListElement key={expense.id}>
                                 <Category>
-                                    {/* <CategoryIcon id={expense.category}/> */}
+                                    <CategoryIcon id={expense.category}/>
                                     {expense.category}
                                 </Category>
                                 <Description>

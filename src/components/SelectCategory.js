@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import theme from './../theme'
 import {ReactComponent as DownIcon} from './../images/down.svg'
-// import CategoryIcon from './../elements/CategoryIcon'
+import CategoryIcon from './../elements/CategoryIcon'
 
 const SelectContainer = styled.div`
     background: ${theme.grisClaro};
@@ -70,7 +70,7 @@ const SelectCategory = ({category, setCategory}) => {
     const categories = [
         {id: 'food', text: 'Food'},
         {id: 'bills', text: 'Bills'},
-        {id: 'miscellaneous', text: 'Miscellaneous'},
+        {id: 'fun', text: 'Fun'},
         {id: 'home', text: 'Home'},
         {id: 'transport', text: 'Transport'},
         {id: 'clothing', text: 'Clothing'},
@@ -95,7 +95,7 @@ const SelectCategory = ({category, setCategory}) => {
                                     data-value={category.id} 
                                     onClick={handleClick}
                                >
-                                    {/* <CategoryIcon id={category.id}/> */}
+                                    <CategoryIcon id={category.id}/>
                                     {category.text}
                                </Option>
                     })}
