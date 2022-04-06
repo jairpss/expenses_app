@@ -10,7 +10,7 @@ import useGetExp from '../hooks/useGetExp'
 const EditExpense = () => {
     const {id} = useParams()
     const [expense] = useGetExp(id)
-
+    
     return ( 
         <>
             <Helmet>
@@ -18,10 +18,10 @@ const EditExpense = () => {
             </Helmet>
 
             <Header>
-                    <BackBtn />
+                    <BackBtn route="/list" />
                     <Title>Edit Expense</Title>
             </Header>
-            <ExpenseForm />
+            <ExpenseForm expense={expense}/>
             <TotalSpentBar />
         </>
      );

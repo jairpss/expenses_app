@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {FilterContainer, Form, Input, BigInput, ButtonContainer} from './../elements/FormElements'
 import Button from './../elements/Button'
 import SelectCategory from './SelectCategory'
@@ -9,15 +9,34 @@ import getUnixTime from 'date-fns/getUnixTime'
 import addExpense from './../firebase/addExpense'
 import {useAuth} from './../context/AuthContext'
 import Alert from './../elements/Alert'
+import {useNavigate} from 'react-router-dom'
+import editExpense from '../firebase/editExpense'
 
-const ExpenseForm = () => {
+const ExpenseForm = ({expense}) => {
     const [inputDescription, setInputDescription] = useState('')
     const [inputAmount, setInputAmount] = useState('')
     const [category, setCategory] = useState('category')
     const [date, setDate] = useState(new Date())
     const [alertState, setAlertState] = useState(false)
     const [alert, setAlert] = useState({})
+
     const {user} = useAuth()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        //check if there's an expense, if so, we set the state w/ expense values
+        if(expense){
+            //check if the expense is from current user, check the saved uid
+            if(expense.data().uidUser === user.uid){
+                setCategory(expense.data().category)
+                setDate(fromUnixTime(expense.data().date))
+                setInputDescription(expense.data().description)
+                setInputAmount(expense.data().amount)
+            } else {
+                navigate('/list')
+            }
+        }
+    }, [expense, user, navigate])
 
     const handleChange = (e) => {
         if(e.target.name === 'description'){
@@ -35,26 +54,42 @@ const ExpenseForm = () => {
         //check the fields are not empty
         if(inputDescription !== '' && inputAmount !== ''){
             if(amount) {
-                addExpense({
-                    category: category,
-                    description: inputDescription,
-                    amount: inputAmount,
-                    date:getUnixTime(date),
-                    uidUser: user.uid
-                })
-                .then(() => {
-                    setCategory('category')
-                    setInputDescription('')
-                    setInputAmount('')
-                    setDate(new Date())
+                if(expense){
+                    editExpense({
+                        id: expense.id,
+                        category: category,
+                        description: inputDescription,
+                        amount: inputAmount,
+                        date:getUnixTime(date),
+                    }).then(() => {
+                        navigate('/list')
+                    }).catch((error) => {
+                        console.log(error)
+                    })
+                } else {
+                    addExpense({
+                        category: category,
+                        description: inputDescription,
+                        amount: inputAmount,
+                        date:getUnixTime(date),
+                        uidUser: user.uid
+                    })
+                    .then(() => {
+                        setCategory('category')
+                        setInputDescription('')
+                        setInputAmount('')
+                        setDate(new Date())
+    
+                        setAlertState(true)
+                        setAlert({type: 'success', message: 'The expense was added successfully.'})
+                    })
+                    .catch((error) => {
+                        setAlertState(true)
+                        setAlert({type: 'error', message: 'There was a problem trying to add the expense.'})
+                    })
+                }
 
-                    setAlertState(true)
-                    setAlert({type: 'success', message: 'The expense was added successfully.'})
-                })
-                .catch((error) => {
-                    setAlertState(true)
-                    setAlert({type: 'error', message: 'There was a problem trying to add the expense.'})
-                })
+                
             } else {
                 setAlertState(true)
                 setAlert({type: 'error', message: 'The value is incorrect.'})
@@ -93,7 +128,7 @@ const ExpenseForm = () => {
             
             <ButtonContainer>
                 <Button as="button" primary withIcon type="submit">
-                    Add Expense <PlusIcon />
+                    {expense ? 'Edit Expense' : 'Add Expense'} <PlusIcon />
                 </Button>
             </ButtonContainer>
             <Alert 
