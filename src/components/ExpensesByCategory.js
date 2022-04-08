@@ -4,9 +4,11 @@ import Helmet from 'react-helmet'
 import BackBtn from '../elements/BackBtn'
 import TotalSpentBar from './TotalSpentBar'
 import useGetMonthExpenses from '../hooks/useGetMonthExpenses'
+import useGetMonthExpensesByCategory from '../hooks/useGetMonthExpensesByCategory'
 
 const ExpensesByCategory = () => {
     useGetMonthExpenses()
+    useGetMonthExpensesByCategory()
 
     return ( 
         <>
