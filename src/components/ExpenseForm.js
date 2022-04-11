@@ -15,7 +15,7 @@ import editExpense from '../firebase/editExpense'
 const ExpenseForm = ({expense}) => {
     const [inputDescription, setInputDescription] = useState('')
     const [inputAmount, setInputAmount] = useState('')
-    const [category, setCategory] = useState('category')
+    const [category, setCategory] = useState('home')
     const [date, setDate] = useState(new Date())
     const [alertState, setAlertState] = useState(false)
     const [alert, setAlert] = useState({})
@@ -75,7 +75,7 @@ const ExpenseForm = ({expense}) => {
                         uidUser: user.uid
                     })
                     .then(() => {
-                        setCategory('category')
+                        setCategory('home')
                         setInputDescription('')
                         setInputAmount('')
                         setDate(new Date())

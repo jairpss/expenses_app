@@ -5,10 +5,13 @@ import BackBtn from '../elements/BackBtn'
 import TotalSpentBar from './TotalSpentBar'
 import useGetMonthExpenses from '../hooks/useGetMonthExpenses'
 import useGetMonthExpensesByCategory from '../hooks/useGetMonthExpensesByCategory'
+import {CategoryList, CategoryListElement, Category, Value} from '../elements/ListElements'
+import CategoryIcon from '../elements/CategoryIcon'
+import formatAmount from '../functions/convertToCurrency'
 
 const ExpensesByCategory = () => {
     useGetMonthExpenses()
-    useGetMonthExpensesByCategory()
+    const expensesByCategory = useGetMonthExpensesByCategory()
 
     return ( 
         <>
@@ -20,6 +23,20 @@ const ExpensesByCategory = () => {
                     <BackBtn />
                     <Title>Expenses By Category</Title>
             </Header>
+
+            <CategoryList>
+                {expensesByCategory.map((element, index) => {
+                    return(
+                        <CategoryListElement key={index}>
+                            <Category> 
+                                <CategoryIcon id={element.category}/>
+                                {element.category}
+                            </Category>
+                            <Value>{formatAmount(element.amount)}</Value>
+                        </CategoryListElement>
+                    )
+                })}
+            </CategoryList>
 
             <TotalSpentBar />
         </>
