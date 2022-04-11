@@ -19,7 +19,8 @@ font-size: 2.5rem; /* 40px */
 
 
 @media(max-width: 60rem){ /* 950px */
-    font-size: 2rem; /* 32px */
+    font-size: 2.4rem; /* 32px */
+    margin-bottom: 15px;
 }
 `;
 
@@ -30,7 +31,7 @@ justify-content: space-between;
 
 @media(max-width: 60rem){ /* 950px */
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
 
     & > div {

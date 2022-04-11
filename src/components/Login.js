@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Header, Title, HeaderContainer} from '../elements/Header'
-import Button from '../elements/Button'
+import {Button, LoginButton} from '../elements/Button'
 import Helmet from 'react-helmet'
 import {Form, Input, ButtonContainer} from '../elements/FormElements'
 import ImgLogin from './../images/login-icon.png' 
@@ -79,7 +79,7 @@ const Login = () => {
 
             <Header>
                     <HeaderContainer>
-                       <Title>Login</Title> 
+                       <Title>Login</Title>
                        <div>
                            <Button to="/signup">SING UP</Button>
                        </div>
@@ -90,7 +90,7 @@ const Login = () => {
                 <Input type="email" name="email" placeholder="Email" value={email} onChange={handleChange}/>
                 <Input type="password" name="password" placeholder="Password" value={password} onChange={handleChange}/>
                 <ButtonContainer>
-                    <Button as="button" type="submit" primary>LOGIN</Button>
+                    <LoginButton as="button" type="submit" primary>LOGIN</LoginButton>
                 </ButtonContainer>
             </Form>
 

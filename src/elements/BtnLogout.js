@@ -1,6 +1,6 @@
 import React from 'react'
 import {ReactComponent as LogoutIcon} from '../images/log-out.svg'
-import Button from './Button'
+import {Button} from './Button'
 import {auth} from './../firebase/firebaseConfig'
 import {signOut} from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'

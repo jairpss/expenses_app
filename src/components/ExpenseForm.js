@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {FilterContainer, Form, Input, BigInput, ButtonContainer} from './../elements/FormElements'
-import Button from './../elements/Button'
+import {Button} from './../elements/Button'
 import SelectCategory from './SelectCategory'
 import {ReactComponent as PlusIcon} from './../images/plus.svg'
 import DatePicker from './DatePicker'

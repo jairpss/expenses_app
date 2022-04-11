@@ -36,14 +36,21 @@ const Form = styled.form`
         &::placeholder {
             color: rgba(0,0,0,.2);
         }
+
+        @media(max-width: 60rem){ /* 950px */
+            
+        }
+        @media(max-width: 40rem){ /* 950px */
+            
+        }
     }
  
-    @media(max-width: 60rem){ /* 950px */
+    @media(max-width: 40rem){ /* 950px */
         justify-content: start;
     }
 `;
  
-const Input = styled.input`
+const Input = styled.input` 
     font-size: 2rem; /* 40px */
     /* text-transform: uppercase; */
     font-family: 'Manrope', sans-serif;

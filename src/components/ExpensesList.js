@@ -7,8 +7,6 @@ import useGetExpenses from './../hooks/useGetExpenses'
 import { 
     List,
     ListElement,
-    CategoryList,
-    CategoryListElement,
     Category,
     Description,
     Value,
@@ -25,7 +23,7 @@ import formatAmount from './../functions/convertToCurrency'
 import {ReactComponent as EditIcon} from './../images/editar.svg'
 import {ReactComponent as DeleteIcon} from './../images/borrar.svg'
 import {Link} from 'react-router-dom'
-import Button from './../elements/Button'
+import {Button} from './../elements/Button'
 import {format, fromUnixTime} from 'date-fns'
 import deleteExpense from './../firebase/deleteExpense'
 
