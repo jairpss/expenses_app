@@ -19,7 +19,7 @@ const FilterContainer = styled.div`
 `;
  
 const Form = styled.form`
-    padding: 0 2.5rem; /* 40px */
+    padding: 0 3.5rem; /* 40px */
  
     height: 100%;
     display: flex;
@@ -58,8 +58,12 @@ const Input = styled.input`
     border: none;
     outline: none;
     border-radius: 10px;
+    
     @media(max-width: 60rem){ /* 950px */
         font-size: 1.8rem; /* 24px */
+    }
+    @media(max-width: 40rem){ /* 950px */
+        margin-bottom: 14px;
     }
 `;
  

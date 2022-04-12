@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import {Header, Title, HeaderContainer} from '../elements/Header'
-import {Button} from '../elements/Button'
+import {Button, SignLogBtn, LoginButton, SignUpButton} from '../elements/Button'
 import Helmet from 'react-helmet'
 import {Form, Input, ButtonContainer} from '../elements/FormElements'
-import ImgLogin from './../images/icon-signup.png' 
+import ImgSignup from './../images/sign_up.SVG'
 import {auth} from './../firebase/firebaseConfig'
 import {useNavigate} from 'react-router-dom'
 import { createUserWithEmailAndPassword } from "firebase/auth"
@@ -101,17 +101,17 @@ const Signup = () => {
                     <HeaderContainer>
                        <Title>Create Account</Title> 
                        <div>
-                           <Button to="/login">LOGIN</Button>
+                           <SignLogBtn to="/login">LOGIN</SignLogBtn>
                        </div>
                     </HeaderContainer>
             </Header>
             <Form onSubmit={handleSubmit}>
-                <img src={ImgLogin} className="login-img" alt="Logo"/>
+                <img src={ImgSignup} className="login-img" alt="Logo"/>
                 <Input type="email" name="email" placeholder="Email" value={email} onChange={handleChange}/>
                 <Input type="password" name="password" placeholder="Password" value={password} onChange={handleChange}/>
                 <Input type="password" name="password2" placeholder="Confirm Password" value={password2} onChange={handleChange}/>
                 <ButtonContainer>
-                    <Button as="button" type="submit" primary>Create Account</Button>
+                    <SignUpButton as="button" type="submit" primary>Create Account</SignUpButton>
                 </ButtonContainer>
             </Form>
             <Alert 

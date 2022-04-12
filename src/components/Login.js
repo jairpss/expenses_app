@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import {Header, Title, HeaderContainer} from '../elements/Header'
-import {Button, LoginButton} from '../elements/Button'
+import {Button, LoginButton, SignLogBtn} from '../elements/Button'
 import Helmet from 'react-helmet'
 import {Form, Input, ButtonContainer} from '../elements/FormElements'
-import ImgLogin from './../images/login-icon.png' 
+import ImgLogin from './../images/log_in.SVG'
 import {useNavigate} from 'react-router-dom'
 import {auth} from './../firebase/firebaseConfig'
 import Alert from './../elements/Alert'
@@ -81,7 +81,7 @@ const Login = () => {
                     <HeaderContainer>
                        <Title>Login</Title>
                        <div>
-                           <Button to="/signup">SING UP</Button>
+                           <SignLogBtn to="/signup">SING UP</SignLogBtn>
                        </div>
                     </HeaderContainer>
             </Header>

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Header = styled.div`
 width: 100%;
-padding: 2.5rem; /* 40px */
+padding: 3.5rem; /* 40px */
 display: flex;
 justify-content: space-between;
 align-items: center;
