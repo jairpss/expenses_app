@@ -46,6 +46,13 @@ const BtnContainer = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
+
+@media(max-width: 500px){ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 `;
 
 export {Header, Title, HeaderContainer, BtnContainer}

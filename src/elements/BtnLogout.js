@@ -19,7 +19,7 @@ const BtnLogout = () => {
 
     return ( 
         <Button bigIcon as ='button' onClick={logOut}>
-            <LogoutIcon />
+            <LogoutIcon />  
         </Button>
      );
 }

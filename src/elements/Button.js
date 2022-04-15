@@ -25,6 +25,12 @@ const Button = styled(Link)`
         height: ${(props) => props.bigIcon ? '100%' : '0.75rem;'};  /* 12px */
         fill: white;
     }
+    @media(max-width: 500px){ 
+        width:100% ;
+        margin: 5px 0;
+        justify-content:center;
+
+    }
 `;
 
 const LoginButton = styled(Link)`
