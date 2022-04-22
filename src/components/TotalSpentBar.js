@@ -17,8 +17,12 @@ const TotalBar = styled.div`
     align-items: center;
  
     @media(max-width: 500px) { 
-        flex-direction: column;
         font-size: 14px;
+    }
+
+    @media(max-width: 420px) { 
+        flex-direction: column;
+        font-size: 12px;
     }
 `;
 

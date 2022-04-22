@@ -76,6 +76,10 @@ const ButtonContainer = styled.div`
     display: flex;
     justify-content: center;
     margin: 2.5rem 0;  /* 40px */
+
+    @media(max-width: 40rem){ /* 950px */
+        flex-direction: column;
+    }
 `;
 
 export {FilterContainer, Form, Input, BigInput, ButtonContainer}

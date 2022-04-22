@@ -55,10 +55,12 @@ const LoginButton = styled(Link)`
     @media(max-width: 60rem){ 
         text-align: center;
         padding: 2.4rem 8rem;
+        margin-bottom: 15px;
     }
     @media(max-width: 40rem){ 
         text-align: center;
         padding: 2.4rem 8rem;
+        margin-bottom: 10px;
     }
 `;
 
@@ -109,10 +111,12 @@ const SignLogBtn = styled(Link)`
     justify-content: space-between;
     align-items: center;
     outline: none;
+    
 
     @media(max-width: 60rem){ 
         text-align: center;
         padding: 2.4rem 8rem;
+        display: none;
     }
     @media(max-width: 40rem){ 
         text-align: center;
@@ -120,4 +124,35 @@ const SignLogBtn = styled(Link)`
     }
 `;
 
-export { Button, LoginButton, SignUpButton, SignLogBtn}
+const SignLogBtnMobile = styled(Link)`
+    background: #1A1B25;
+    width: auto;  
+    border: none;
+    border-radius: 0.625rem; 
+    color: #fff;
+    font-family: 'Manrope', sans-serif;
+    height: 3.75rem; 
+    padding: 2.2rem 4.5rem; 
+    font-size: 1.5rem; 
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    outline: none;
+    display: none;
+
+    @media(max-width: 60rem){ 
+        text-align: center;
+        padding: 2.4rem 8rem;
+        display: block;
+    }
+    @media(max-width: 40rem){ 
+        text-align: center;
+        padding: 2.4rem 8rem;
+    }
+`;
+
+export { Button, LoginButton, SignUpButton, SignLogBtn, SignLogBtnMobile}

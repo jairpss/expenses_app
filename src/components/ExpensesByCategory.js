@@ -1,5 +1,5 @@
 import React from 'react'
-import {Header, Title, HeaderContainer, BtnContainer} from '../elements/Header'
+import {Header, Title, TitleExpByCat} from '../elements/Header'
 import Helmet from 'react-helmet'
 import BackBtn from '../elements/BackBtn'
 import TotalSpentBar from './TotalSpentBar'
@@ -21,7 +21,7 @@ const ExpensesByCategory = () => {
 
             <Header>
                     <BackBtn />
-                    <Title>Expenses By Category</Title>
+                    <TitleExpByCat>Expenses By Category</TitleExpByCat>
             </Header>
 
             <CategoryList>
