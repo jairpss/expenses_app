@@ -36,7 +36,7 @@ const Button = styled(Link)`
 const LoginButton = styled(Link)`
     background: #005CE6;
     width: auto;  
-    border: none;
+    border: 2px solid #005CE6;
     border-radius: 0.625rem; 
     color: #fff;
     font-family: 'Manrope', sans-serif;
@@ -47,20 +47,21 @@ const LoginButton = styled(Link)`
     letter-spacing: 1px;
     cursor: pointer;
     text-decoration: none;
-    display: inline-flex;
-    justify-content: space-between;
+    display:flex;
+    justify-content: center;
     align-items: center;
     outline: none;
 
     @media(max-width: 60rem){ 
         text-align: center;
-        padding: 2.4rem 8rem;
-        margin-bottom: 15px;
+        padding: 2.2rem 8rem;
+        margin-right: 15px;
     }
-    @media(max-width: 40rem){ 
+    @media(max-width: 812px){ 
         text-align: center;
-        padding: 2.4rem 8rem;
+        padding: 2.2rem 8rem;
         margin-bottom: 10px;
+        margin-right: 0px;
     }
 `;
 
@@ -125,33 +126,45 @@ const SignLogBtn = styled(Link)`
 `;
 
 const SignLogBtnMobile = styled(Link)`
-    background: #1A1B25;
+    background: transparent;
     width: auto;  
-    border: none;
+    border: 3px solid #1A1B25;
     border-radius: 0.625rem; 
-    color: #fff;
+    color: #1A1B25;
     font-family: 'Manrope', sans-serif;
-    height: 3.75rem; 
-    padding: 2.2rem 4.5rem; 
+    height: 4.75rem; 
+    padding: 18px 4.5rem; 
     font-size: 1.5rem; 
     font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
     text-decoration: none;
-    display: inline-flex;
-    justify-content: space-between;
+    display: flex;
+    justify-content: center;
     align-items: center;
     outline: none;
     display: none;
-
+    &:hover{
+        background: #1A1B25;
+        color: #fff;
+    }
     @media(max-width: 60rem){ 
         text-align: center;
-        padding: 2.4rem 8rem;
+        padding: 18px 8rem;
         display: block;
     }
-    @media(max-width: 40rem){ 
+    @media(max-width: 48rem){ 
         text-align: center;
-        padding: 2.4rem 8rem;
+    }
+    @media(max-width: 475px){ 
+        
+        padding: 18px 7rem;
+    }
+    @media(max-width: 435px){ 
+        padding: 18px 5.5rem;
+    }
+    @media(max-width: 390px){ 
+        padding: 18px 4rem;
     }
 `;
 

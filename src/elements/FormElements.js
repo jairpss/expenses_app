@@ -77,7 +77,7 @@ const ButtonContainer = styled.div`
     justify-content: center;
     margin: 2.5rem 0;  /* 40px */
 
-    @media(max-width: 40rem){ /* 950px */
+    @media(max-width: 812px){ /* 950px */
         flex-direction: column;
     }
 `;
