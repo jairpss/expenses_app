@@ -98,7 +98,9 @@ const BtnContainer = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
-
+@media(max-width: 960px){ 
+    margin-top: 15px;
+}
 @media(max-width: 500px){ 
     display: flex;
     flex-direction: column;

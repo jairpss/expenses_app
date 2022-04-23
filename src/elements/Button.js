@@ -25,12 +25,18 @@ const Button = styled(Link)`
         height: ${(props) => props.bigIcon ? '100%' : '0.75rem;'};  /* 12px */
         fill: white;
     }
+    @media(max-width: 812px){ 
+        justify-content:center;
+    }
+    @media(max-width: 610px){ 
+        padding: 1.25rem 1.2rem; /* 20px 30px */
+    }
     @media(max-width: 500px){ 
         width:100% ;
         margin: 5px 0;
         justify-content:center;
-
     }
+    
 `;
 
 const LoginButton = styled(Link)`
@@ -67,30 +73,38 @@ const LoginButton = styled(Link)`
 
 const SignUpButton = styled(Link)`
     background: #005CE6;
+    border: 2px solid #005CE6;
     width: auto;  
-    border: none;
     border-radius: 0.625rem; 
     color: #fff;
     font-family: 'Manrope', sans-serif;
     height: 3.75rem; 
-    padding: 2.2rem 3.6rem; 
-    font-size: 1.5rem; 
+    padding: 2.2rem 5rem; 
+    font-size: 1.5rem;  
     font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
     text-decoration: none;
-    display: inline-flex;
-    justify-content: space-between;
+    display:flex;
+    justify-content: center;
     align-items: center;
     outline: none;
 
     @media(max-width: 60rem){ 
         text-align: center;
-        padding: 2.4rem 4rem;
+        padding: 2.2rem 5.5rem;
+        margin-right: 15px;
+        font-size: 1.3rem;
     }
-    @media(max-width: 40rem){ 
-        text-align: center;
-        padding: 2.4rem 4rem;
+    @media(max-width: 812px){ 
+        margin-bottom: 10px;
+        margin-right: 0px;
+    }
+    @media(max-width: 532px){ 
+        padding: 2.2rem 4rem;
+    }
+    @media(max-width: 410px){ 
+        padding: 2.2rem 2.5rem;
     }
 `;
 
@@ -157,8 +171,8 @@ const SignLogBtnMobile = styled(Link)`
         text-align: center;
     }
     @media(max-width: 475px){ 
-        
         padding: 18px 7rem;
+        font-size: 1.4rem; 
     }
     @media(max-width: 435px){ 
         padding: 18px 5.5rem;

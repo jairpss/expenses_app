@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Header, Title, HeaderContainer} from '../elements/Header'
-import {Button, SignLogBtn, LoginButton, SignUpButton} from '../elements/Button'
+import {Button, SignLogBtn, SignUpButton, SignLogBtnMobile} from '../elements/Button'
 import Helmet from 'react-helmet'
 import {Form, Input, ButtonContainer} from '../elements/FormElements'
 import ImgSignup from './../images/sign_up.SVG'
@@ -112,6 +112,7 @@ const Signup = () => {
                 <Input type="password" name="password2" placeholder="Confirm Password" value={password2} onChange={handleChange}/>
                 <ButtonContainer>
                     <SignUpButton as="button" type="submit" primary>Create Account</SignUpButton>
+                    <SignLogBtnMobile to="/login">LOGIN</SignLogBtnMobile>
                 </ButtonContainer>
             </Form>
             <Alert 

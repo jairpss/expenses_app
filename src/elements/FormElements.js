@@ -37,10 +37,10 @@ const Form = styled.form`
             color: rgba(0,0,0,.2);
         }
 
-        @media(max-width: 60rem){ /* 950px */
+        @media(max-width: 60rem){ 
             
         }
-        @media(max-width: 40rem){ /* 950px */
+        @media(max-width: 40rem){ 
             
         }
     }
@@ -58,18 +58,27 @@ const Input = styled.input`
     border: none;
     outline: none;
     border-radius: 10px;
-    
+    margin-bottom: 10px;
     @media(max-width: 60rem){ /* 950px */
         font-size: 1.8rem; /* 24px */
+        margin-bottom: 12px;
     }
     @media(max-width: 40rem){ /* 950px */
-        margin-bottom: 14px;
+        margin-bottom: 12px;
+        font-size: 1.6rem; /* 24px */
     }
 `;
  
 const BigInput = styled(Input)`
     font-size: 4.37rem; /* 70px */
     font-weight: bold;
+
+    @media(max-width: 500px){ 
+        font-size: 3.8rem; 
+    }
+    @media(max-width: 440px){ 
+        font-size: 3.2rem; 
+    }
 `;
  
 const ButtonContainer = styled.div`
