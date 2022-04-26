@@ -107,6 +107,8 @@ align-items: center;
     align-items: center;
     width: 100%;
     margin-top: 15px;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 `;
 

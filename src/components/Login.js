@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {Header, Title, HeaderContainer} from '../elements/Header'
 import {Button, LoginButton, SignLogBtn, SignLogBtnMobile} from '../elements/Button'
 import Helmet from 'react-helmet'
-import {Form, Input, ButtonContainer} from '../elements/FormElements'
+import {Form, Input, ButtonContainer, ButtonContainerLogin} from '../elements/FormElements'
 import ImgLogin from './../images/log_in.SVG'
 import {useNavigate} from 'react-router-dom'
 import {auth} from './../firebase/firebaseConfig'
@@ -89,10 +89,10 @@ const Login = () => {
                 <img src={ImgLogin} className="login-img" alt="Logo"/>
                 <Input type="email" name="email" placeholder="Email" value={email} onChange={handleChange}/>
                 <Input type="password" name="password" placeholder="Password" value={password} onChange={handleChange}/>
-                <ButtonContainer>
+                <ButtonContainerLogin>
                     <LoginButton as="button" type="submit" primary>LOGIN</LoginButton>
                     <SignLogBtnMobile to="/signup">SING UP</SignLogBtnMobile>
-                </ButtonContainer>
+                </ButtonContainerLogin>
             </Form>
 
             <Alert 

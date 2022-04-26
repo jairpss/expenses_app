@@ -10,7 +10,7 @@ const Button = styled(Link)`
     color: #fff;
     font-family: 'Manrope', sans-serif;
     height: 3.75rem; /* 60px */
-    padding: 1.25rem 2rem; /* 20px 30px */
+    padding: 1.25rem 2rem; 
     font-size: 1.25rem; /* 20px */
     font-weight: 700;
     letter-spacing: 1px;
@@ -29,7 +29,7 @@ const Button = styled(Link)`
         justify-content:center;
     }
     @media(max-width: 610px){ 
-        padding: 1.25rem 1.2rem; /* 20px 30px */
+        padding: 1.25rem 1.25rem; /* 20px 30px */
     }
     @media(max-width: 500px){ 
         width:100% ;

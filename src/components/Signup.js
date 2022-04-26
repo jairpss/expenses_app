@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {Header, Title, HeaderContainer} from '../elements/Header'
 import {Button, SignLogBtn, SignUpButton, SignLogBtnMobile} from '../elements/Button'
 import Helmet from 'react-helmet'
-import {Form, Input, ButtonContainer} from '../elements/FormElements'
+import {Form, Input, ButtonContainer, ButtonContainerLogin} from '../elements/FormElements'
 import ImgSignup from './../images/sign_up.SVG'
 import {auth} from './../firebase/firebaseConfig'
 import {useNavigate} from 'react-router-dom'
@@ -110,10 +110,10 @@ const Signup = () => {
                 <Input type="email" name="email" placeholder="Email" value={email} onChange={handleChange}/>
                 <Input type="password" name="password" placeholder="Password" value={password} onChange={handleChange}/>
                 <Input type="password" name="password2" placeholder="Confirm Password" value={password2} onChange={handleChange}/>
-                <ButtonContainer>
+                <ButtonContainerLogin>
                     <SignUpButton as="button" type="submit" primary>Create Account</SignUpButton>
                     <SignLogBtnMobile to="/login">LOGIN</SignLogBtnMobile>
-                </ButtonContainer>
+                </ButtonContainerLogin>
             </Form>
             <Alert 
                 type={alert.type}

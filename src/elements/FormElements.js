@@ -86,9 +86,20 @@ const ButtonContainer = styled.div`
     justify-content: center;
     margin: 2.5rem 0;  /* 40px */
 
+    @media(max-width: 500px){ /* 950px */
+        flex-direction: column;
+    }
+`;
+
+const ButtonContainerLogin = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem 0;  /* 40px */
+
     @media(max-width: 812px){ /* 950px */
         flex-direction: column;
     }
 `;
 
-export {FilterContainer, Form, Input, BigInput, ButtonContainer}
+
+export {FilterContainer, Form, Input, BigInput, ButtonContainer, ButtonContainerLogin}
