@@ -91,7 +91,7 @@ const Login = () => {
                 <Input type="password" name="password" placeholder="Password" value={password} onChange={handleChange}/>
                 <ButtonContainerLogin>
                     <LoginButton as="button" type="submit" primary>LOGIN</LoginButton>
-                    <SignLogBtnMobile to="/signup">SING UP</SignLogBtnMobile>
+                    <SignLogBtnMobile to="/signup">SIGN UP</SignLogBtnMobile>
                 </ButtonContainerLogin>
             </Form>
 
