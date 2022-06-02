@@ -81,7 +81,7 @@ const Login = () => {
                     <HeaderContainer>
                        <Title>Login</Title>
                        <div>
-                           <SignLogBtn to="/signup">SING UP</SignLogBtn>
+                           <SignLogBtn to="/signup">SIGN UP</SignLogBtn>
                        </div>
                     </HeaderContainer>
             </Header>
